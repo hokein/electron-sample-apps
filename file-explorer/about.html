@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>about FileExpolorer</title>
+    <style type="text/css">
+      html, body, .body {
+        overflow: hidden;
+        text-align: center;
+        font-family: sans-serif;
+        background-image: url('images/htmlbg.png');
+      }
+      a {
+        font-size: 16px;
+      }
+    </style>
+
+    <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+    <script>
+      var shell = require('shell');
+      $(document).ready(function(){
+        $(document).find('a').bind('click', function (e) {
+          e.preventDefault();
+          shell.openExternal('https://github.com');
+        })
+      });
+    </script>
+  </head>
+  <body>
+    <div class="body">
+      <h3>FileExpolorer sample app</h3>
+      <a href="https://github.com/hokein/electron-sample-apps">https://github.com/hokein/electron-sample-apps</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,5 @@
+{
+  "name"    : "mp3-encoder-demo",
+  "version" : "0.1.0",
+  "main"    : "main.js"
+}
