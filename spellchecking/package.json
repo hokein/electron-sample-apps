@@ -1,0 +1,8 @@
+{
+  "name"    : "spellchecker-demo",
+  "version" : "0.1.0",
+  "main"    : "main.js",
+  "dependencies": {
+      "spellchecker": "2.2.0"
+  }
+}
