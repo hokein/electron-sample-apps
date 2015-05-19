@@ -1,6 +1,6 @@
 # Spellchecking Demo
 
-This demo relies on the [spellchecker](https://github.com/atom/node-spellchecker) node module which maps through to the native spellchecker APIs on Mac, Windows, and Linux. Because this module runs native code, it needs to be compiled. It's important that you compile it for the version of Atom Shell you are using using the [instructions here](https://github.com/atom/electron/blob/master/docs/tutorial/using-native-node-modules.md).
+This demo uses the [spellchecker](https://github.com/atom/node-spellchecker) node module which maps through to native spelling APIs on Mac, Windows, and Linux. This module needs to be compiled since it runs native code, and it's important that you compile it for the version of Electron you are using. With `apm` installed you can run the commands below. See the [instructions here](https://github.com/atom/electron/blob/master/docs/tutorial/using-native-node-modules.md) for more information.
 
 ```
 export ATOM_NODE_VERSION=0.26.0
