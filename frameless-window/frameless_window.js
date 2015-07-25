@@ -33,12 +33,12 @@ function initCheckbox(checkboxId, titlebar_name, titlebar_icon_url, titlebar_tex
   }
 }
 
-window.onfocus = function() { 
+window.onfocus = function() {
   console.log("focus");
   focusTitlebars(true);
 }
 
-window.onblur = function() { 
+window.onblur = function() {
   console.log("blur");
   focusTitlebars(false);
 }
@@ -52,11 +52,10 @@ window.onload = function() {
   initCheckbox("bottom-box", "bottom-titlebar", "bottom-titlebar.png", "Bottom Titlebar");
   initCheckbox("left-box", "left-titlebar", "left-titlebar.png", "Left Titlebar");
   initCheckbox("right-box", "right-titlebar", "right-titlebar.png", "Right Titlebar");
-  
+
   document.getElementById("close-window-button").onclick = function() {
     window.close();
   }
-  
+
   updateContentStyle();
-  require("nw.gui").Window.get().show();
 }
