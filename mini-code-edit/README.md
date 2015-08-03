@@ -10,3 +10,7 @@ A non-trivial sample with basic features of a code editor, like syntax detection
 * [MenuItem](https://github.com/atom/electron/blob/master/docs/api/menu-item.md)
 * [Clipboard] (https://github.com/atom/electron/blob/master/docs/api/clipboard.md)
 * [fs module](http://nodejs.org/api/fs.html)
+
+## Screenshot
+
+![screenshot](/mini-code-edit/screenshot/screenshot.png)
