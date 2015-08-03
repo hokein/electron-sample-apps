@@ -7,3 +7,7 @@ A sample application to showcase how you can use `"frame": false` windows to all
 
 * [BrowserWindow](https://github.com/atom/electron/blob/master/docs/api/browser-window.md)
 * [Frameless Window](https://github.com/atom/electron/blob/master/docs/api/frameless-window.md)
+
+## Screenshot
+
+![screenshot](/frameless-window/screenshot/screenshot.png)
