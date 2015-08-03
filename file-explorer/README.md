@@ -10,3 +10,7 @@ folders and open files.
 * [path module](http://nodejs.org/api/path.html)
 * [util module](http://nodejs.org/api/util.html)
 * [child_process module](http://nodejs.org/api/child_process.html)
+
+## Screenshot
+
+![screenshot](/file-explorer/screenshot/screenshot.png)
