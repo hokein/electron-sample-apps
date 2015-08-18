@@ -71,7 +71,7 @@ function viewPDF() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  print_win = new BrowserWindow({});
+  print_win = new BrowserWindow({'auto-hide-menu-bar':true});
   print_win.loadUrl('file://' + __dirname + '/print.html');
   print_win.show();
 
