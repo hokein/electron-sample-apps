@@ -56,6 +56,8 @@ function savePDF() {
             return;
           }
           save_pdf_path = file_path;
+          document.getElementById('output-log').innerHTML =
+            "<p> Write PDF file: " + save_pdf_path + " successfully!</p>";
         });
       });
     }
