@@ -34,22 +34,39 @@ function getPDFPrintSettings() {
 }
 
 function print() {
-  print_win.print();
+  if (print_win)
+    print_win.print();
 }
 
 function savePDF() {
+  if (!print_win) {
+    dialog.showErrorBox('Error', "The printing window isn't created");
+    return;
+  }
   dialog.showSaveDialog(print_win, {}, function(file_path) {
-    print_win.printToPDF(getPDFPrintSettings(), function(err, data) {
-      if (err) throw err;
-      fs.writeFile(file_path, data, function(err) {
-        if(err) throw err;
-        save_pdf_path = file_path;
+    if (file_path) {
+      print_win.printToPDF(getPDFPrintSettings(), function(err, data) {
+        if (err) {
+          dialog.showErrorBox('Error', err);
+          return;
+        }
+        fs.writeFile(file_path, data, function(err) {
+          if (err) {
+            dialog.showErrorBox('Error', err);
+            return;
+          }
+          save_pdf_path = file_path;
+        });
       });
-    });
+    }
   });
 }
 
 function viewPDF() {
+  if (!save_pdf_path) {
+    dialog.showErrorBox('Error', "You should save the pdf before viewing it");
+    return;
+  }
   shell.openItem(save_pdf_path);
 }
 
