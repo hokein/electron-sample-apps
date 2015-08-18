@@ -82,4 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('view_pdf_button').addEventListener(
       'click', viewPDF);
   });
+  print_win.on('closed', function() {
+    print_win = null;
+  });
 });
