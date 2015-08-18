@@ -1,6 +1,6 @@
 # Printing Sample
 
-A sample app demonstrates printing APIs usage. 
+A sample app demonstrates printing APIs usage.
 
 
 ## APIs
@@ -8,3 +8,7 @@ A sample app demonstrates printing APIs usage.
 * [webContents.print](https://github.com/atom/electron/blob/master/docs/api/browser-window.md#webcontentsprintoptions)
 
 * [webContents.printToPDF](https://github.com/atom/electron/blob/master/docs/api/browser-window.md#webcontentsprintoptions)
+
+## Screenshot
+
+![screenshot](/printing/screenshot/screenshot.png)
