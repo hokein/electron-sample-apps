@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <script src="print.js"></script>
+  </head>
+
+  <body>
+    <h2>Print to PDF Settings</h2>
+    <div>
+      <p style="display:inline-block;width:100px;margin-right:10px;">Layout</p>
+      <select id="layout-settings">
+        <option selected="">Portrait</option>
+        <option >Landscape</option>
+      </select>
+    </div>
+
+    <div>
+      <p style="display:inline-block;width:100px;margin-right:10px;">Page size</p>
+      <select id="page-size-settings">
+          <option>A4</option>
+          <option>A3</option>
+          <option>Letter</option>
+          <option>Legal</option>
+          <option>Tabloid</option>
+       </select>
+    </div>
+
+    <div>
+      <p style="display:inline-block;width:100px;margin-right:10px;">Margins</p>
+      <select id="margin-settings">
+        <option value="0" selected="">Default</option>
+        <option value="1">None</option>
+        <option value="2">Minimum</option>
+      </select>
+    </div>
+
+    <div>
+      <div>
+        <p style="display:inline-block;width:100px;margin-right:10px;">Margins</p>
+        <div style="display:inline-block">
+        <input id="print-background" type="checkbox">
+        <span i18n-content="optionBackgroundColorsAndImages">Background graphics</span>
+      </div>
+      <div style="padding-left:115px">
+        <input id="print-selection" type="checkbox">
+        <span i18n-content="optionBackgroundColorsAndImages">Selection only</span>
+      </div>
+    </div>
+
+    <div style="margin-top:15px">
+      <button id="print_button">Print</button>
+      <button id="save_pdf_button">Save as PDF</button>
+      <button id="view_pdf_button">View PDF</button>
+    </div>
+
+    <div id="output-log">
+    </div>
+  </body>
+</html>
