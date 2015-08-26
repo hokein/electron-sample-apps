@@ -13,7 +13,7 @@ function getPDFPrintSettings() {
     landscape: false,
     marginsType: 0,
     printBackground: false,
-    printSelectronOnly: false,
+    printSelectionOnly: false,
     pageSize: 'A4',
   };
 
@@ -28,7 +28,7 @@ function getPDFPrintSettings() {
     parseInt(marginsSetting.options[marginsSetting.selectedIndex].value);
 
   option.printBackground = document.getElementById("print-background").checked;
-  option.printSelectronOnly = document.getElementById(
+  option.printSelectionOnly = document.getElementById(
     "print-selection").checked;
   return option;
 }
