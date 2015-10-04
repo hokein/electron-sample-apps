@@ -1,5 +1,8 @@
 <html>
 <head>
+<link href="image-picker.css" rel="stylesheet">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="image-picker.min.js"></script>
 <style>
   body {
     background: white;
@@ -9,8 +12,8 @@
     -webkit-flex-direction: column;
   }
   video {
-    width: 640px;
-    height: 480px;
+    width: 480px;
+    height: 360px;
     background: rgba(0,0,0,0.25);
   }
   button {
@@ -48,8 +51,11 @@
 </style>
 </head>
 <body>
+  <select id="picture" class="image-picker show-html">
+  </select>
   <video autoplay></video>
   <p><button>Enable Capture</button></p>
+
 <script src="app.js"></script>
 </body>
 </html>

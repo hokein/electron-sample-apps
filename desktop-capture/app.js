@@ -12,31 +12,68 @@
 // limitations under the License.
 // Author: Dongseong Hwang (dongseong.hwang@intel.com)
 
+var desktopCapturer = require('desktop-capturer');
 
 var desktop_sharing = false;
 var local_stream = null;
 
-var desktopCapturer = require('desktop-capturer');
+function refresh() {
+  $('select').imagepicker({
+    hide_select : true
+  });
+}
 
-desktopCapturer.on('source-thumbnail-changed', function(index) {
-  var item = desktopCapturer.getSource(index);
-  if (item.name == "Electron" && !desktop_sharing) {
-    desktopCapturer.stopUpdating();
-    onAccessApproved(item.id);
-  }
+function addOption(source) {
+  $('select').append($('<option>', {
+    value: source.id.replace(":", ""),
+    text: source.name
+  }));
+}
+
+function removeOption(source) {
+  $('select option[value=' + source.id.replace(":", "") + ']').remove();
+  refresh();
+}
+
+function addThumbnail(source) {
+  $('select option[value=' + source.id.replace(":", "") + ']').attr('data-img-src', source.thumbnail.toDataUrl());
+  refresh();
+}
+
+desktopCapturer.on('source-added', function(source) {
+  console.log('source-added: ' + source.id);
+  addOption(source);
 });
+
+desktopCapturer.on('source-removed', function(source) {
+  console.log ("removed: " + source.name + " : " + source.id)
+  removeOption(source);
+});
+
+desktopCapturer.on('source-thumbnail-changed', function(source) {
+  addThumbnail(source);
+});
+
+desktopCapturer.startUpdating(['screen', 'window']);
 
 function toggle() {
   if (!desktop_sharing) {
-    desktopCapturer.startUpdating(['window', 'screen']);
+    var id = ($('select').val()).replace(/window|screen/g, function(match) { return match + ":"; });
+    console.log(id);
+    onAccessApproved(id);
+    desktopCapturer.stopUpdating();
+    $("select").data('picker').destroy();
   } else {
     desktop_sharing = false;
 
     if (local_stream)
-        local_stream.stop();
+      local_stream.stop();
     local_stream = null;
 
     document.querySelector('button').innerHTML = "Enable Capture";
+
+    $('select').empty();
+    desktopCapturer.startUpdating(['screen', 'window']);
     console.log('Desktop sharing stopped...');
   }
 }
