@@ -14,8 +14,8 @@
 
 var desktopCapturer = require('desktop-capturer');
 
-var desktop_sharing = false;
-var local_stream = null;
+var desktopSharing = false;
+var localStream = null;
 
 function refresh() {
   $('select').imagepicker({
@@ -23,58 +23,40 @@ function refresh() {
   });
 }
 
-function addOption(source) {
+function addSource(source) {
   $('select').append($('<option>', {
     value: source.id.replace(":", ""),
     text: source.name
   }));
-}
-
-function removeOption(source) {
-  $('select option[value=' + source.id.replace(":", "") + ']').remove();
-  refresh();
-}
-
-function addThumbnail(source) {
   $('select option[value=' + source.id.replace(":", "") + ']').attr('data-img-src', source.thumbnail.toDataUrl());
   refresh();
 }
 
-desktopCapturer.on('source-added', function(source) {
-  console.log('source-added: ' + source.id);
-  addOption(source);
-});
-
-desktopCapturer.on('source-removed', function(source) {
-  console.log ("removed: " + source.name + " : " + source.id)
-  removeOption(source);
-});
-
-desktopCapturer.on('source-thumbnail-changed', function(source) {
-  addThumbnail(source);
-});
-
-desktopCapturer.startUpdating(['screen', 'window']);
+function showSources() {
+  desktopCapturer.getSources({ types:['window', 'screen'] }, function(sources) {
+    for (var i = 0; i < sources.length; ++i) {
+      console.log("Name: " + sources[i].name)
+      addSource(sources[i]);
+    }
+  });
+}
 
 function toggle() {
-  if (!desktop_sharing) {
+  if (!desktopSharing) {
     var id = ($('select').val()).replace(/window|screen/g, function(match) { return match + ":"; });
-    console.log(id);
     onAccessApproved(id);
-    desktopCapturer.stopUpdating();
-    $("select").data('picker').destroy();
   } else {
-    desktop_sharing = false;
+    desktopSharing = false;
 
-    if (local_stream)
-      local_stream.stop();
-    local_stream = null;
+    if (localStream)
+      localStream.stop();
+    localStream = null;
 
     document.querySelector('button').innerHTML = "Enable Capture";
 
     $('select').empty();
-    desktopCapturer.startUpdating(['screen', 'window']);
-    console.log('Desktop sharing stopped...');
+    showSources();
+    refresh();
   }
 }
 
@@ -83,7 +65,7 @@ function onAccessApproved(desktop_id) {
     console.log('Desktop Capture access rejected.');
     return;
   }
-  desktop_sharing = true;
+  desktopSharing = true;
   document.querySelector('button').innerHTML = "Disable Capture";
   console.log("Desktop sharing started.. desktop_id:" + desktop_id);
   navigator.webkitGetUserMedia({
@@ -101,10 +83,10 @@ function onAccessApproved(desktop_id) {
   }, gotStream, getUserMediaError);
 
   function gotStream(stream) {
-    local_stream = stream;
+    localStream = stream;
     document.querySelector('video').src = URL.createObjectURL(stream);
     stream.onended = function() {
-      if (desktop_sharing) {
+      if (desktopSharing) {
         toggle();
       }
     };
@@ -114,6 +96,11 @@ function onAccessApproved(desktop_id) {
     console.log('getUserMediaError: ' + JSON.stringify(e, null, '---'));
   }
 }
+
+$(document).ready(function() {
+  showSources();
+  refresh();
+});
 
 document.querySelector('button').addEventListener('click', function(e) {
   toggle();
