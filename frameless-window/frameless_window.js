@@ -53,8 +53,29 @@ window.onload = function() {
   initCheckbox("left-box", "left-titlebar", "left-titlebar.png", "Left Titlebar");
   initCheckbox("right-box", "right-titlebar", "right-titlebar.png", "Right Titlebar");
 
+
+
+  var remote = require('remote');
+  var BrowserWindow = remote.require('browser-window');
+  var win = BrowserWindow.getFocusedWindow();
+
   document.getElementById("close-window-button").onclick = function() {
-    window.close();
+    win.close();
+  }
+  document.getElementById("minimize-window-button").onclick = function() {
+    win.minimize();
+  }
+  document.getElementById("maximize-window-button").onclick = function() {
+    win.maximize();
+  }
+  document.getElementById("unmaximize-window-button").onclick = function() {
+    win.unmaximize();
+  }
+  document.getElementById("toggle-window-button").onclick = function() {
+    win.setFullScreen(!(win.isFullScreen()));
+  }
+  document.getElementById("maxmin-window-button").onclick = function() {
+    win.isMaximized() ? win.unmaximize() : win.maximize();
   }
 
   updateContentStyle();
