@@ -33,9 +33,9 @@ function addSource(source) {
 }
 
 function showSources() {
-  desktopCapturer.getSources({ types:['window', 'screen'] }, function(sources) {
+  desktopCapturer.getSources({ types:['window', 'screen'] }, function(error, sources) {
     for (var i = 0; i < sources.length; ++i) {
-      console.log("Name: " + sources[i].name)
+      console.log("Name: " + sources[i].name);
       addSource(sources[i]);
     }
   });
