@@ -28,7 +28,7 @@ var App = {
   about: function () {
     var params = {toolbar: false, resizable: false, show: true, height: 150, width: 400};
     aboutWindow = new BrowserWindow(params);
-    aboutWindow.loadUrl('file://' + __dirname + '/about.html');
+    aboutWindow.loadURL('file://' + __dirname + '/about.html');
   },
 
   // change folder for sidebar links
