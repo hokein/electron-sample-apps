@@ -8,6 +8,8 @@ app.on('window-all-closed', function() {
     app.quit();
 });
 
+app.setPath("userData", __dirname + "/saved_recordings");
+
 app.on('ready', function() {
   mainWindow = new BrowserWindow({width: 800, height: 600});
 
