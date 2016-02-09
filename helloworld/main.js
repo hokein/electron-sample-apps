@@ -5,6 +5,8 @@ var BrowserWindow = require('browser-window');
 
 var mainWindow = null;
 
+console.log(process.versions)
+
 app.on('ready', function() {
     mainWindow = new BrowserWindow({
         height: 600,

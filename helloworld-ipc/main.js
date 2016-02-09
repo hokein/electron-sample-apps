@@ -5,10 +5,7 @@ var BrowserWindow = require('browser-window');
 
 var mainWindow = null;
 
-var ipcMain = require('electron').ipcMain;
-global.sharedObj = {myvar: null};
-var myname = "hello-from-main-dot-js";
-global.sharedObj = {myvar: myname};
+global.sharedObj = {myvar: "hellofrommainjs"};
 
 app.on('ready', function() {
     mainWindow = new BrowserWindow({
