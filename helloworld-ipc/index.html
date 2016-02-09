@@ -1,0 +1,11 @@
+<h1>This demos how to get a myvar from main.js to index.html</h1>
+
+<script>
+     var remote = require('electron').remote;     
+     var myvar2 = remote.getGlobal('sharedObj').myvar;     
+</script>
+
+<script>
+document.write('<p>myvar2 is: ' + myvar2 + '</p>');
+document.write('<p>electron.version: ' + process.versions.node + '</p>')
+</script>
