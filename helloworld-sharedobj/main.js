@@ -5,7 +5,7 @@ var BrowserWindow = require('browser-window');
 
 var mainWindow = null;
 
-console.log(process.versions)
+global.sharedObj = {myvar: "hellofrommainjs"};
 
 app.on('ready', function() {
     mainWindow = new BrowserWindow({
