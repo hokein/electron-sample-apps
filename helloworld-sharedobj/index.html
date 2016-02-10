@@ -3,5 +3,4 @@
 <script>
 var remote = require('electron').remote;     
 document.write('<p>myvar: ' + remote.getGlobal('sharedObj').myvar + '</p>');
-document.write('<p>electron.version: ' + process.versions.node + '</p>')
 </script>
