@@ -20,4 +20,4 @@ If you want to know more about Electron app's development, please refer to the
 
 ## License
 
-electron-sample-appls is pulished under the Apache v2 license. See `LICENSE` for details.
+electron-sample-apps is pulished under the Apache v2 license. See `LICENSE` for details.
