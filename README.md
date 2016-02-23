@@ -13,7 +13,7 @@ All the sample test on v0.30.2.
 
 1. Install Electron via `npm install -g electron-prebuilt`.
 
-2. Run the sample via `electron <electrom-sample-apps-path>/<sample-name>`.
+2. Run the sample via `electron <electron-sample-apps-path>/<sample-name>`.
 
 If you want to know more about Electron app's development, please refer to the
 [official docs](https://github.com/atom/electron/blob/master/docs/tutorial/quick-start.md).
