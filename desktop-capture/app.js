@@ -49,7 +49,7 @@ function toggle() {
     desktopSharing = false;
 
     if (localStream)
-      localStream.stop();
+      localStream.getTracks()[0].stop();
     localStream = null;
 
     document.querySelector('button').innerHTML = "Enable Capture";
