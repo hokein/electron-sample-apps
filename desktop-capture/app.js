@@ -28,7 +28,7 @@ function addSource(source) {
     value: source.id.replace(":", ""),
     text: source.name
   }));
-  $('select option[value=' + source.id.replace(":", "") + ']').attr('data-img-src', source.thumbnail.toDataUrl());
+  $('select option[value="' + source.id.replace(":", "") + '"]').attr('data-img-src', source.thumbnail.toDataUrl());
   refresh();
 }
 
