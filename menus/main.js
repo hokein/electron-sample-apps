@@ -1,16 +1,12 @@
-var app = require('app');  // Module to control application life.
-var BrowserWindow = require('browser-window');  // Module to create native browser window.
-var Menu = require('menu');
-
-// Report crashes to our server.
-require('crash-reporter').start();
+const electron = require('electron');
+const {app, BrowserWindow, Menu} = require('electron');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the javascript object is GCed.
-var mainWindow = null;
+let mainWindow;
 
 // Quit when all windows are closed.
-app.on('window-all-closed', function() {
+app.on('window-all-closed', () => {
   if (process.platform != 'darwin')
     app.quit();
 });
@@ -22,7 +18,7 @@ app.on('ready', function() {
   mainWindow = new BrowserWindow({width: 800, height: 600});
 
   // and load the index.html of the app.
-  mainWindow.loadUrl('file://' + __dirname + '/index.html');
+  mainWindow.loadURL('file://' + __dirname + '/index.html');
 
   var application_menu = [
     {
@@ -36,8 +32,8 @@ app.on('ready', function() {
         {
           label: 'Open',
           accelerator: 'CmdOrCtrl+O',
-          click: function() { 
-            require('electron').dialog.showOpenDialog({ properties: [ 'openFile', 'openDirectory', 'multiSelections' ]});
+          click: () => {
+            electron.dialog.showOpenDialog({ properties: [ 'openFile', 'openDirectory', 'multiSelections' ]});
           }
         },
         {
@@ -46,14 +42,14 @@ app.on('ready', function() {
             {
               label: 'item1',
               accelerator: 'CmdOrCtrl+A',
-              click: function() {
+              click: () => {
                 mainWindow.openDevTools();
               }
             },
             {
               label: 'item2',
               accelerator: 'CmdOrCtrl+B',
-              click: function() {
+              click: () => {
                 mainWindow.closeDevTools();
               }
             }
@@ -63,7 +59,7 @@ app.on('ready', function() {
     }
   ];
   if (process.platform == 'darwin') {
-    var name = require('electron').app.getName();
+    const name = app.getName();
     application_menu.unshift({
       label: name,
       submenu: [
@@ -102,7 +98,7 @@ app.on('ready', function() {
         {
           label: 'Quit',
           accelerator: 'Command+Q',
-          click: function() { app.quit(); }
+          click: () => { app.quit(); }
         },
       ]
     });
@@ -110,7 +106,7 @@ app.on('ready', function() {
 
   menu = Menu.buildFromTemplate(application_menu);
   Menu.setApplicationMenu(menu);
-  
+
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
     // Dereference the window object, usually you would store windows
