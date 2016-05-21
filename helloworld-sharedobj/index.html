@@ -1,6 +1,6 @@
 <h1>This demos how to get a myvar from main.js to index.html</h1>
 
 <script>
-var remote = require('electron').remote;     
+const {remote} = require('electron');
 document.write('<p>myvar: ' + remote.getGlobal('sharedObj').myvar + '</p>');
 </script>

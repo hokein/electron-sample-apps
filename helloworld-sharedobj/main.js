@@ -1,17 +1,14 @@
-'use strict';
+const {app, BrowserWindow} = require('electron');
 
-var app = require('app');
-var BrowserWindow = require('browser-window');
-
-var mainWindow = null;
+let mainWindow;
 
 global.sharedObj = {myvar: "hellofrommainjs"};
 
 app.on('ready', function() {
-    mainWindow = new BrowserWindow({
-        height: 600,
-        width: 800
-    });
+  mainWindow = new BrowserWindow({
+      height: 600,
+      width: 800
+  });
 
-    mainWindow.loadURL('file://' + __dirname + '/index.html');
+  mainWindow.loadURL('file://' + __dirname + '/index.html');
 });
