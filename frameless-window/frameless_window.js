@@ -53,11 +53,9 @@ window.onload = function() {
   initCheckbox("left-box", "left-titlebar", "left-titlebar.png", "Left Titlebar");
   initCheckbox("right-box", "right-titlebar", "right-titlebar.png", "Right Titlebar");
 
-
-
-  var remote = require('remote');
-  var BrowserWindow = remote.require('browser-window');
-  var win = BrowserWindow.getFocusedWindow();
+  const {remote} = require('electron');
+  const {BrowserWindow} = remote;
+  const win = BrowserWindow.getFocusedWindow();
 
   document.getElementById("close-window-button").onclick = function() {
     win.close();
