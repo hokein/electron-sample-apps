@@ -1,21 +1,20 @@
-var app = require('app');
-var BrowserWindow = require('browser-window');
+const {app, BrowserWindow} = require('electron');
 
-var mainWindow = null;
+let mainWindow;
 
-app.on('window-all-closed', function() {
+app.on('window-all-closed', () => {
   if (process.platform != 'darwin')
     app.quit();
 });
 
 app.setPath("userData", __dirname + "/saved_recordings");
 
-app.on('ready', function() {
+app.on('ready', () => {
   mainWindow = new BrowserWindow({width: 800, height: 600});
 
   mainWindow.loadURL('file://' + __dirname + '/index.html');
 
-  mainWindow.on('closed', function() {
+  mainWindow.on('closed', () => {
     mainWindow = null;
   });
 });

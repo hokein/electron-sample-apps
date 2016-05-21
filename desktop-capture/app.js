@@ -12,10 +12,10 @@
 // limitations under the License.
 // Author: Dongseong Hwang (dongseong.hwang@intel.com)
 
-var desktopCapturer = require('desktop-capturer');
+const {desktopCapturer} = require('electron');
 
-var desktopSharing = false;
-var localStream = null;
+let desktopSharing = false;
+let localStream;
 
 function refresh() {
   $('select').imagepicker({
@@ -28,15 +28,15 @@ function addSource(source) {
     value: source.id.replace(":", ""),
     text: source.name
   }));
-  $('select option[value="' + source.id.replace(":", "") + '"]').attr('data-img-src', source.thumbnail.toDataUrl());
+  $('select option[value="' + source.id.replace(":", "") + '"]').attr('data-img-src', source.thumbnail.toDataURL());
   refresh();
 }
 
 function showSources() {
   desktopCapturer.getSources({ types:['window', 'screen'] }, function(error, sources) {
-    for (var i = 0; i < sources.length; ++i) {
-      console.log("Name: " + sources[i].name);
-      addSource(sources[i]);
+    for (let source of sources) {
+      console.log("Name: " + source.name);
+      addSource(source);
     }
   });
 }
