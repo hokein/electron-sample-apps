@@ -1,15 +1,14 @@
-var app = require('app');
-var BrowserWindow = require('browser-window');
+const {app, BrowserWindow} = require('electron');
 
-var mainWindow = null;
+let mainWindow;
+
 app.on('ready', function() {
   mainWindow = new BrowserWindow({x:100, y:100, width: 400, height: 420});
-  mainWindow.loadUrl('file://' + __dirname + '/index.html');
-  mainWindow.on('close', function() {
-    var windows = BrowserWindow.getAllWindows();
-    for (var i = 0; i < windows.length; ++i) {
-      if (windows[i] != mainWindow)
-        windows[i].close();
+  mainWindow.loadURL('file://' + __dirname + '/index.html');
+  mainWindow.on('close', () => {
+    for (let window of BrowserWindow.getAllWindows()) {
+      if (window != mainWindow)
+        window.close();
     }
   })
 });
