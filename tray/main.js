@@ -1,12 +1,9 @@
-var app = require('app');
-var Tray = require('tray');
-var Menu = require('menu');
-var path = require('path');
-var BrowserWindow = require('browser-window');
+const {app, Tray, Menu, BrowserWindow} = require('electron');
+const path = require('path');
 
-var iconPath = path.join(__dirname, 'icon.png');
-var appIcon = null;
-var win = null;
+const iconPath = path.join(__dirname, 'icon.png');
+let appIcon = null;
+let win = null;
 
 app.on('ready', function(){
   win = new BrowserWindow({show: false});
