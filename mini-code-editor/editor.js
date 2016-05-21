@@ -4,12 +4,9 @@ var menu;
 var fileEntry;
 var hasWriteAccess;
 
-var remote = require('remote');
-var Menu = remote.require('menu');
-var MenuItem = remote.require('menu-item');
-var dialog = remote.require('dialog');
-var fs = require("fs");
-var clipboard = require('clipboard');
+const {remote, clipboard} = require('electron');
+const {Menu, MenuItem, dialog } = remote;
+const fs = require("fs");
 
 function handleDocumentChange(title) {
   var mode = "javascript";
