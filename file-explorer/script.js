@@ -1,10 +1,7 @@
 global.$ = $;
 
-var remote = require('remote');
-var Menu = remote.require('menu');
-var BrowserWindow = remote.require('browser-window');
-var MenuItem = remote.require('menu-item');
-var shell = require('shell');
+const {remote} = require('electron');
+const {Menu, BrowserWindow, MenuItem, shell} = remote;
 
 var abar = require('address_bar');
 var folder_view = require('folder_view');
@@ -28,7 +25,7 @@ var App = {
   about: function () {
     var params = {toolbar: false, resizable: false, show: true, height: 150, width: 400};
     aboutWindow = new BrowserWindow(params);
-    aboutWindow.loadUrl('file://' + __dirname + '/about.html');
+    aboutWindow.loadURL('file://' + __dirname + '/about.html');
   },
 
   // change folder for sidebar links

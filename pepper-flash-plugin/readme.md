@@ -1,7 +1,7 @@
 # Pepper-Flash-Plugin Sample
 
 A sample shows Pepper Flash Plugin usage in Electron. More details can be found
-at https://github.com/atom/electron/blob/master/docs/tutorial/using-pepper-flash-plugin.md.
+at https://github.com/electron/electron/blob/master/docs/tutorial/using-pepper-flash-plugin.md.
 
 ## Run steps
 
@@ -15,7 +15,7 @@ If it succees, you can view `You have version X.X.X.X installed` in the sample p
 ## Ways to find pepper flash plugin
 
 1. Copy from Chrome Browser: you can find the plugin(`Adobe Flash Player`) location
-by navigating `chrome:://plugins` in Chrome Browser.
+by navigating `chrome://plugins` in Chrome Browser.
 
 2. Manually install Adobe Flash Player from https://get.adobe.com/flashplayer/otherversions/.
 Then you can find plugin in the installed directory, ie. On Windows, the directory
@@ -28,7 +28,6 @@ is under `C:\Windows\SysWOW64\Macromed\Flash`(32-bits) and `C:\Windows\System32\
 This means you mixing up the architectures. You need to make the architecture
 of flash plugin consitent with Electron you run, e.g., load 32-bit flash plugin
 in 32-bit Electron.
-
 
 ## Screenshot
 

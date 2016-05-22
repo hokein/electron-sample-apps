@@ -1,4 +1,4 @@
-var win = require('remote').getCurrentWindow();
+const ses = require('electron').remote.getCurrentWebContents().session;
 
 // A simple Timer class.
 function Timer() {
@@ -108,16 +108,15 @@ function removeAll() {
     });
   });
   cache.reset();
-  var count = all_cookies.length;
   var timer = new Timer();
-  for (var i = 0; i < count; i++) {
-    removeCookie(all_cookies[i]);
+  for (let cookie of all_cookies) {
+    removeCookie(cookie);
   }
   timer.reset();
-  win.webContents.session.cookies.get({}, function(cookies) {
-    for (var i in cookies) {
-      cache.add(cookies[i]);
-      removeCookie(cookies[i]);
+  ses.cookies.get({}, function(cookies) {
+    for (let cookie in cookies) {
+      cache.add(cookie);
+      removeCookie(cookie);
     }
   });
 }
@@ -125,10 +124,9 @@ function removeAll() {
 function removeCookie(cookie) {
   var url = "http" + (cookie.secure ? "s" : "") + "://" + cookie.domain +
             cookie.path;
-  win.webContents.session.cookies.remove({"url": url, "name": cookie.name},
-      function(error) {
-        if (error) throw error;
-        update(cookie);
+  ses.cookies.remove(url, cookie.name, function(error) {
+      if (error) throw error;
+      update(cookie);
   });
 }
 
@@ -225,12 +223,12 @@ function update(cookie) {
 function onload() {
   focusFilter();
   var timer = new Timer();
-  win.webContents.session.cookies.get({}, function(error, cookies) {
+  ses.cookies.get({}, function(error, cookies) {
     if (error) throw error;
     console.log(cookies);
     start = new Date();
-    for (var i in cookies) {
-      cache.add(cookies[i]);
+    for (let cookie of cookies) {
+      cache.add(cookie);
     }
     timer.reset();
     reloadCookieTable();

@@ -1,6 +1,6 @@
-var crashReporter = require('crash-reporter');
+const {crashReporter} = require('electron');
 
-crashReporter.start({submitUrl: 'http://127.0.0.1:9999'});
+crashReporter.start({submitURL: 'http://127.0.0.1:9999', companyName: 'sample'});
 
 function showCrashReporter(report) {
   return "<tr><td>" + report.date + "</td>" +
@@ -15,8 +15,8 @@ window.onload = function() {
               "</tr>\n";
 
   var div = document.getElementById("crash_reporters");
-  for (var i = 0; i < reporters.length; ++i) {
-    table += showCrashReporter(reporters[i]);
+  for (let reporter of reporters) {
+    table += showCrashReporter(reporter);
   }
   div.innerHTML = table;
   document.getElementById('crash').onclick = function() {

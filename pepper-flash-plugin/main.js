@@ -1,15 +1,14 @@
-var app = require('app');
-var path = require('path');
-var BrowserWindow = require('browser-window');
+const {app, BrowserWindow} = require('electron');
+const path = require('path');
 
-var mainWindow = null;
+let mainWindow;
 
 app.on('window-all-closed', function() {
   if (process.platform != 'darwin')
     app.quit();
 });
 
-var ppapi_flash_path = null;
+let ppapi_flash_path;
 
 // Specify flash path.
 // On Windows, it might be /path/to/pepflashplayer.dll
@@ -34,5 +33,5 @@ app.on('ready', function() {
     'height': 600,
     'web-preferences': {'plugins': true}
   });
-  mainWindow.loadUrl('http://www.adobe.com/software/flash/about/');
+  mainWindow.loadURL('http://www.adobe.com/software/flash/about/');
 });

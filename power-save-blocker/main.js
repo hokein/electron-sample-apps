@@ -1,20 +1,16 @@
-var app = require('app');
-var Tray = require('tray');
-var Menu = require('menu');
-var path = require('path');
-var powerSaveBlocker = require('power-save-blocker');
-var BrowserWindow = require('browser-window');
+const {app, Tray, Menu, powerSaveBlocker, BrowserWindow} = require('electron');
+const path = require('path');
 
-var appIcon = null;
-var win = null;
-var disabledIconPath = path.join(__dirname, 'images', 'night-19.png');
-var appSuspensionIconPath = path.join(__dirname, 'images', 'sunset-19.png');
-var displaySleepIconPath = path.join(__dirname, 'images', 'day-19.png');
+let appIcon;
+let win;
+const disabledIconPath = path.join(__dirname, 'images', 'night-19.png');
+const appSuspensionIconPath = path.join(__dirname, 'images', 'sunset-19.png');
+const displaySleepIconPath = path.join(__dirname, 'images', 'day-19.png');
 
 app.on('ready', function(){
   win = new BrowserWindow({show: false});
   appIcon = new Tray(disabledIconPath);
-  var blocker_id = null;
+  let blocker_id = null;
   var contextMenu = Menu.buildFromTemplate([
     {
       label: 'Prevent app suspension',

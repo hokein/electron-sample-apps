@@ -1,12 +1,9 @@
-var remote = require('remote');
-var shell = remote.require('shell');
-var fs = require('fs');
+const {remote} = require('electron');
+const {BrowserWindow, dialog, shell} = remote;
+const fs = require('fs');
 
-var BrowserWindow = remote.require('browser-window');
-var dialog = remote.require('dialog');
-
-var print_win = null;
-var save_pdf_path = null;
+let print_win;
+let save_pdf_path;
 
 function getPDFPrintSettings() {
   var option = {
@@ -35,7 +32,7 @@ function getPDFPrintSettings() {
 
 function print() {
   if (print_win)
-    print_win.print();
+    print_win.webContents.print();
 }
 
 function savePDF() {
@@ -45,7 +42,7 @@ function savePDF() {
   }
   dialog.showSaveDialog(print_win, {}, function(file_path) {
     if (file_path) {
-      print_win.printToPDF(getPDFPrintSettings(), function(err, data) {
+      print_win.webContents.printToPDF(getPDFPrintSettings(), function(err, data) {
         if (err) {
           dialog.showErrorBox('Error', err);
           return;
@@ -74,7 +71,7 @@ function viewPDF() {
 
 document.addEventListener('DOMContentLoaded', function() {
   print_win = new BrowserWindow({'auto-hide-menu-bar':true});
-  print_win.loadUrl('file://' + __dirname + '/print.html');
+  print_win.loadURL('file://' + __dirname + '/print.html');
   print_win.show();
 
   print_win.webContents.on('did-finish-load', function() {
