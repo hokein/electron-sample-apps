@@ -1,7 +1,7 @@
-var https = require('https');
-var fs = require('fs');         
+const https = require('https');
+const fs = require('fs');
 
-var options = {
+const options = {
   key:  fs.readFileSync('ssl/server.key'),
   cert: fs.readFileSync('ssl/server.crt'),
   ca:   fs.readFileSync('ssl/rootCA.crt'),

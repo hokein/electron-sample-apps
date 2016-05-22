@@ -1,7 +1,6 @@
-var app = require('app');
-var BrowserWindow = require('browser-window');
+const {app, BrowserWindow} = require('electron');
 
-var mainWindow = null;
+let mainWindow;
 
 app.on('window-all-closed', function() {
   if (process.platform != 'darwin')
@@ -9,7 +8,7 @@ app.on('window-all-closed', function() {
 });
 
 //app.commandLine.appendSwitch('client-certificate',
-                             //'X:\\workspace\\client-certificates\\ssl\\client.crt');
+                             //'path/to/client-certificates/ssl/client.crt');
 
 app.on('ready', function() {
   mainWindow = new BrowserWindow({
@@ -17,5 +16,5 @@ app.on('ready', function() {
     'height': 600,
   });
 
-  mainWindow.loadUrl('https://localhost:5000');
+  mainWindow.loadURL('https://localhost:5000');
 });
