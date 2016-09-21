@@ -5,9 +5,9 @@ A sample app demonstrates printing APIs usage.
 
 ## APIs
 
-* [webContents.print](https://github.com/atom/electron/blob/master/docs/api/browser-window.md#webcontentsprintoptions)
+* [webContents.print](https://github.com/electron/electron/blob/master/docs/api/web-contents.md#contentsprintoptions)
 
-* [webContents.printToPDF](https://github.com/atom/electron/blob/master/docs/api/browser-window.md#webcontentsprintoptions)
+* [webContents.printToPDF](https://github.com/electron/electron/blob/master/docs/api/web-contents.md#contentsprinttopdfoptions-callback)
 
 ## Screenshot
 
