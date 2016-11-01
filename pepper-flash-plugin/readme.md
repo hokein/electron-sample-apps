@@ -10,11 +10,14 @@ at https://github.com/electron/electron/blob/master/docs/tutorial/using-pepper-f
 2. Make ppapi-flash-version in `main.js` align with the copied plugin's.
 
 3. Run the sample `electron path/to/electron-sample-apps/pepper-flash-plugin`.
-If it succees, you can view `You have version X.X.X.X installed` in the sample page.
+If it succeeds, you can view `You have version X.X.X.X installed` in the sample page.
 
 ## Ways to find pepper flash plugin
 
-1. Copy from Chrome Browser: you can find the plugin(`Adobe Flash Player`) location
+**Note:** Please make sure the version of Pepper Flash Plugin is the same to the one being used
+in the Electron's Chromium version.
+
+1. Copy from Chrome Browser: you can find the plugin (`Adobe Flash Player`) location
 by navigating `chrome://plugins` in Chrome Browser.
 
 2. Manually install Adobe Flash Player from https://get.adobe.com/flashplayer/otherversions/.
