@@ -1,0 +1,22 @@
+<html>
+<body>
+<script>
+    function log(message) {
+      document.body.appendChild(
+          document.createTextNode(message));
+      console.log.apply(console, arguments);
+    }
+    window.onerror = function(err) {
+      log("Error", err);
+    };
+    navigator.serviceWorker.register('service-worker.js', {
+      scope: './'
+    }).then(function(sw) {
+      log("Registered!", sw);
+      log("You should get a different response when you refresh the page.");
+    }).catch(function(err) {
+      log("Error", err);
+    });
+</script>
+</body>
+</html>
