@@ -1,6 +1,6 @@
 # Browser
 
-A mini browser that shows the usage of [webview](https://github.com/atom/electron/blob/master/docs/api/web-view-tag.md)
+A mini browser that shows the usage of [webview](https://github.com/atom/electron/blob/master/docs/api/webview-tag.md)
 in an app.
 
 The app's main window contains a `<webview>` that is sized to fit most of it
@@ -13,7 +13,7 @@ reliability of your application.
 
 ## APIs
 
-* [webview](https://github.com/atom/electron/blob/master/docs/api/web-view-tag.md)
+* [webview](https://github.com/atom/electron/blob/master/docs/api/webview-tag.md)
 
 
 ## Screenshot
