@@ -26,7 +26,7 @@ is under `C:\Windows\SysWOW64\Macromed\Flash`(32-bits) and `C:\Windows\System32\
 
 ## Troublesome
 
-###Failed to load Pepper module from /path/to/pepper-flash-plugin (error: 193)
+### Failed to load Pepper module from /path/to/pepper-flash-plugin (error: 193)
 
 This means you mixing up the architectures. You need to make the architecture
 of flash plugin consitent with Electron you run, e.g., load 32-bit flash plugin
