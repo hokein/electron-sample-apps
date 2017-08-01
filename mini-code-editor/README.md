@@ -13,4 +13,4 @@ A non-trivial sample with basic features of a code editor, like syntax detection
 
 ## Screenshot
 
-![screenshot](/mini-code-edit/screenshot/screenshot.png)
+![screenshot](/mini-code-editor/screenshot/screenshot.png)
