@@ -8,7 +8,7 @@ A non-trivial sample with basic features of a code editor, like syntax detection
 * [BrowserWindow](https://github.com/atom/electron/blob/master/docs/api/browser-window.md)
 * [Menu](https://github.com/atom/electron/blob/master/docs/api/menu.md)
 * [MenuItem](https://github.com/atom/electron/blob/master/docs/api/menu-item.md)
-* [Clipboard] (https://github.com/atom/electron/blob/master/docs/api/clipboard.md)
+* [Clipboard](https://github.com/atom/electron/blob/master/docs/api/clipboard.md)
 * [fs module](http://nodejs.org/api/fs.html)
 
 ## Screenshot
