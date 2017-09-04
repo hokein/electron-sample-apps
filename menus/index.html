@@ -1,23 +1,27 @@
-<script>
-const {remote} = require('electron');
-const {Menu, MenuItem} = remote;
+<html>
 
-let submenu = new Menu();
-submenu.append(new MenuItem({ type: 'checkbox', label: 'box1' }));
-submenu.append(new MenuItem({ type: 'checkbox', label: 'box2' }));
-submenu.append(new MenuItem({ type: 'checkbox', label: 'box3' }));
-submenu.append(new MenuItem({ type: 'checkbox', label: 'box4' }));
+  <head>
 
-let menu1 = new Menu();
-menu1.append(new MenuItem({ label: 'MenuItem1', click () { alert('item 1 clicked'); } }));
-menu1.append(new MenuItem({ label: 'MenuItem2', type: 'checkbox', checked: true }));
-menu1.append(new MenuItem({ label: 'Disk', submenu: submenu}));
+  </head>
 
-window.addEventListener('contextmenu', function (e) {
-  e.preventDefault();
-  menu1.popup(remote.getCurrentWindow());
-}, false);
-</script>
+  <body>
 
+    <h1 id="main-menu" >Right click the webpage to show the menu.<h1>
 
-<h1>Right click the webpage to show the menu.<h1>
+    <div id="area-1">
+      <h4> Area One </h4>
+    </div>
+
+    <div id="area-2">
+      <h4> Area Two </h4>
+    </div>
+
+    <div id="area-3">
+      <h4> Area Three </h4>
+    </div>
+
+  </body>
+
+  <script src="script.js"> </script>
+
+</html>
