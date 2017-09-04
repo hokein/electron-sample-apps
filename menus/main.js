@@ -2,7 +2,7 @@ const electron = require('electron');
 const {app, BrowserWindow, Menu} = require('electron');
 
 // Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the javascript object is GCed.
+// be closed automatically when the javascript object is garbage collected.
 let mainWindow;
 
 // Quit when all windows are closed.
