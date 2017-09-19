@@ -2,6 +2,9 @@ const {app, BrowserWindow} = require('electron');
 
 let mainWindow;
 
+// enable ignore-gpu-blacklist option
+app.commandLine.appendSwitch('--ignore-gpu-blacklist');
+
 // Quit when all windows are closed.
 app.on('window-all-closed', function() {
   if (process.platform != 'darwin')
