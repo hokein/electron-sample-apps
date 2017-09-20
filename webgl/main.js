@@ -2,7 +2,9 @@ const {app, BrowserWindow} = require('electron');
 
 let mainWindow;
 
-// enable ignore-gpu-blacklist option
+// Chrome by default black lists certain GPUs because of bugs.
+// if your are not able to view webgl try enabling --ignore-gpu-blacklist option
+// But, this will make electron/chromium less stable.
 app.commandLine.appendSwitch('--ignore-gpu-blacklist');
 
 // Quit when all windows are closed.
