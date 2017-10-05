@@ -7,11 +7,11 @@ These sample apps are migrated from [nw-sample-apps](https://github.com/zcbenz/n
 [chrome-app-sample](https://github.com/GoogleChrome/chrome-app-samples) and
 [chromium extensions examples](https://code.google.com/p/chromium/codesearch#chromium/src/chrome/common/extensions/docs/examples/&sq=package:chromium&type=cs).
 
-All samples are test on Electron v1.1.1.
+All samples are test on Electron v1.6.11.
 
 ## How to run apps
 
-1. Install Electron via `npm install -g electron-prebuilt@1.1.1`.
+1. Install Electron via `npm install -g electron`.
 
 2. Run the sample via `electron <electron-sample-apps-path>/<sample-name>`.
 
