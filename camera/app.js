@@ -1,8 +1,6 @@
-navigator.webkitGetUserMedia({video: true},
-  function(stream) {
+navigator.mediaDevices.getUserMedia({video: true})
+  .then(function(stream) {
     document.getElementById('camera').src = URL.createObjectURL(stream);
-  },
-  function() {
+  }).catch(function() {
     alert('could not connect stream');
-  }
-);
+  });
