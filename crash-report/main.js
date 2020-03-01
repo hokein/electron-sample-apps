@@ -18,7 +18,7 @@ var server = http.createServer(function(req, res) {
 var mainWindow = null;
 app.on('ready', function() {
   server.listen(9999, '127.0.0.1', function () {
-    mainWindow = new BrowserWindow({width: 800, height: 600});
+    mainWindow = new BrowserWindow({width: 800, height: 600, webPreferences: {nodeIntegration: true}});
     mainWindow.loadURL('file://' + __dirname + '/index.html');
     mainWindow.toggleDevTools();
   });
