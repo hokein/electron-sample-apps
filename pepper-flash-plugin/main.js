@@ -31,7 +31,10 @@ app.on('ready', function() {
   mainWindow = new BrowserWindow({
     'width': 800,
     'height': 600,
-    'webPreferences': {'plugins': true}
+    'webPreferences': {
+      'plugins': true,
+      'nodeIntegration': true
+    }, 
   });
   mainWindow.loadURL('http://www.adobe.com/software/flash/about/');
 });
