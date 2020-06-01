@@ -33,7 +33,7 @@ function addSource(source) {
 }
 
 function showSources() {
-  desktopCapturer.getSources({ types:['window', 'screen'] }, function(error, sources) {
+  desktopCapturer.getSources({ types:['window', 'screen'] }).then(async sources => {
     for (let source of sources) {
       console.log("Name: " + source.name);
       addSource(source);
@@ -84,7 +84,9 @@ function onAccessApproved(desktop_id) {
 
   function gotStream(stream) {
     localStream = stream;
-    document.querySelector('video').src = URL.createObjectURL(stream);
+    let video = document.querySelector('video');
+    video.srcObject = stream;
+    video.onloadedmetadata = (e) => video.play();
     stream.onended = function() {
       if (desktopSharing) {
         toggle();
